@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+       <groupId>org.codetab</groupId>
+       <artifactId>simple-multi</artifactId>
+       <version>1.0</version>
+   </parent>
+
+   <artifactId>util</artifactId>
+
+   <dependencies>
+       <dependency>
+           <groupId>org.apache.commons</groupId>
+           <artifactId>commons-lang3</artifactId>
+           <version>3.6</version>
+       </dependency>
+       <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <version>4.12</version>
+           <scope>test</scope>
+       </dependency>
+   </dependencies>
+
+</project>
+The parent element refers the parent using its coordinates. The artifact id of the module is specified with artifactId element and there is no need to specify groupId and version as they are derived from the parent. The dependencies/dependency block defines the dependencies of the module - commons-lang3 and junit.
+
+Next, let’s see the app/pom.xml and except for dependencies it is similar to util/pom.xml. The app module uses methods from util module and for this, the app/pom.xml specifies util as dependency. The dependencies block is show below
+
+app/pom.xml
+
+....
+<dependencies>
+    <dependency>
+        <groupId>org.codetab</groupId>
+        <artifactId>util</artifactId>
+        <version>1.0</version>
+    </dependency>
+    ....
+</dependencies>
